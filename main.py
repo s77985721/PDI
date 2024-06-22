@@ -1,61 +1,99 @@
-from models.Cliente import Cliente
-from models.Producto import Producto
 from models.Carrito import Carrito
-from controllers.ClienteController import clienteController
-from controllers.ProductoController import productoController
-from controllers.CarritoController import carritoController
+from models.Producto import Producto
+from models.Cliente import Cliente
+from controllers.ClienteController import ClienteController
+from controllers.ProductoController import ProductoController
+from controllers.CarritoController import CarritoController
 
-cliente1 = Cliente("rodri","rodri.08gabriel.perez",600)
-#cliente2 = Cliente("Juan","Juan_correo@gmail.com",600)
-#cliente3 = Cliente("Ignacio","nacho-23.@hotmail.com",60)
-#clinete4 = Cliente("Yo","Salame@gmail.com",899)
-
-#producto1 = Producto(2054,"Harina",100,1)
-#producto2 = Producto(20,"Tomate",100)
-#producto3 = Producto(20523,"Azucar",100,5)
-#producto4 = Producto(20765,"Yerba",200,9)
+"""
+CLIENTES
+"""
 
 
-#cliente1.insertar()
+"""
+Crea nuevos clientes
 
-#cliente2.insertar()
+# cliente1 = ClienteController.nuevo("rodri.08gabriel.perez@gmail.com","rodri")
+# cliente2 = ClienteController.nuevo("gato@gmail.com","roberto")
+# cliente3 = ClienteController.nuevo("pepe@gmail.com","pepe")
+# cliente4 = ClienteController.nuevo("agus@gmail.com","agus")
+# cliente5 = ClienteController.nuevo("juan@gmail.com","juan")
+# cliente6 = ClienteController.nuevo("pablo@gmail.com","pablo")
+# cliente7 = ClienteController.nuevo("lucas@gmail.com","lucas")
 
-#cliente3.insertar()
+"""
 
-#clinete4.insertar()
+"""
+Actualiza un cliente como clave su correo
 
-#producto1.insertar()
+cliente1 = ClienteController.actualizar("pepe@gmail.com","pepe",200)
+print(cliente1)
 
-#p#roducto2.insertar()
+"""
 
-#producto3.insertar()
+"""
+Borra un cliente por su correo
 
-#producto4.insertar() 
+print(ClienteController.borrar("gato@gmail.com"))
 
-#producto5 = productoController.nuevo("Arroz",1000,10)
+"""
 
-#producto1=Producto(201,"Yerba",299,9)
-#producto1.actualizar()
-#print(producto1)
+"""
 
-#print(Cliente.obtener_uno('rodri.08gabriel.perez'))
+Obtener un cliente por su correo
 
-#print(Producto.obtener(201))
+cliente = ClienteController.obtener("juan@gmail.com")
+print(cliente)
 
-#print(Producto.obtener_todo())
+"""
 
-#print(Cliente.obtener_todo()) 
+"""
+PRODUCTOS
+"""
+
+"""
+Ingresar nuevo producto
+
+producto = ProductoController.nuevo("Leche",200,8)
+print(producto)
 
 
+"""
+
+"""
+Actualiza un producto
+
+producto = ProductoController.actualizar(205,"Azucar",200,8)
+print(producto)
+
+"""
+
+"""
+Borra un producto
+
+producto = ProductoController.borrar(204)
+print(producto)
+
+"""
+
+"""
+Obtener un producto
+
+producto = ProductoController.obtener(201)
+print(producto)
+
+Output: Nombre: Yerba Precio: 299
+
+"""
 
 
-#cliente1 = clienteController.nuevo("roberto","gato@gmail.com",10)
-
-#cliente1 = clienteController.actualizar("gato@gmail.com","dylan",30)
-#print(cliente1)
-#producto1 = productoController.actualizar(201,"Bowls",1200,9)
-#print(productoController.borrar(205))
-#cliente1 = clienteController.borrar("ahgdg")
-#cliente1 = clienteController.obtener("n")
-#print(clienteController.obtener("Salame@gmail.com"))
-producto1 = carritoController.agregar_producto()
+"""
+CARRITO
+"""
+cliente = ClienteController.obtener("rodri.08gabriel.perez@gmail.com")
+# ClienteController.actualizar("rodri.08gabriel.perez@gmail.com","rodri",10000)
+carrito = Carrito(cliente)
+CarritoController.agregar_producto(carrito,205)
+CarritoController.agregar_producto(carrito,205)
+CarritoController.agregar_producto(carrito,201)
+print(CarritoController.realizar_compra(carrito))
